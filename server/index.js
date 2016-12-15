@@ -231,19 +231,6 @@ app.post('/searchByMark', funciont(request, response)
 			response.writeHead(200, headers);
 			response.end(JSON.stringify(student));
 		}
-		else
-		{
-			response.writeHead(404, headers);
-			response.end(JSON.stringify());
-		}
-
-	}
-    else    
-	{
-		//unaceptable input
-		response.writeHead(406, headers);
-		response.end(JSON.stringify("1"));
-	}   
 	
 });
 
