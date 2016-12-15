@@ -192,7 +192,7 @@ app.post('/deleteStudent', function(request, response)
 
 });
 
-app.post('/searchByMark', funciont(request, response)
+app.post('/searchByMark', function(request, response)
 {
 	var headers = {};
 	headers["Access-Control-Allow-Origin"] = "*";
