@@ -85,12 +85,14 @@ describe("Test /deleteStudent", function() {
 		client.post(base_url + "deleteStudent/", test, function(err, res, body){
 			expect(res.statusCode).toBe(200);
 			done();
+		});
 	});
 	var test1 = {}
 	it("returns status code 406", function(done) {
 		client.post(base_url + "deleteStudent/", test1, function(err, res, body){
 			expect(res.statusCode).toBe(406);
 			done();
+		});
 	});
 });
 
