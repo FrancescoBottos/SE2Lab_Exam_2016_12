@@ -106,4 +106,7 @@ definitions:
       address:
         type: string
         description: address of the student
+      mark:
+	type: string
+	description: mark of the student
 
