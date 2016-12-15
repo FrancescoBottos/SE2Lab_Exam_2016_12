@@ -122,6 +122,27 @@ var deleteStudentSSN = function deleteStudentSSN(SSN)
 	}
 }
 
+var searchStudentM = function searchStudentM(mark)
+{
+	var rMark = mark[1];
+	var markList[];
+	var numL = 0;
+	for (i=0; i < studentList.length; i++)
+	{
+		if (studentList[i].mark >= rMark)
+		{
+			markList[numL] = studentList[i];
+			numL++;
+		}
+   	}
+    //If per controllo di presenza di studenti nella lista dei mark
+    if(numL == 0)
+	return null;
+    else
+	return markList;
+    
+});
+
 var insertStudent = function insertStudent(student)
 {
 	if (searchStudentID(student.ID)==null)
@@ -142,5 +163,6 @@ exports.searchStudentID = searchStudentID;
 exports.searchStudentSSN = searchStudentSSN; 
 exports.deleteStudentID = deleteStudentID; 
 exports.deleteStudentSSN = deleteStudentSSN; 
+exports.searchStudentM = searchStudentM;
 exports.insertStudent = insertStudent;  
 exports.getList = getList; 

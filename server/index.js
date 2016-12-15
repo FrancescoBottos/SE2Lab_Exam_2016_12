@@ -33,6 +33,7 @@ app.get('/', function(request, response)
 	response.end("Welcome student");
 });
 
+
 /**
  * @brief returns the list of students
  * @return a static page.
@@ -44,6 +45,8 @@ app.get('/showList', function(request, response)
 	response.writeHead(200, headers);
 	response.end(JSON.stringify(studentManager.getList()));
 });
+
+
 
 /**
  * @brief search a student
@@ -187,6 +190,61 @@ app.post('/deleteStudent', function(request, response)
 			response.end(JSON.stringify("1"));
 		}   
 
+});
+
+app.post('/searchByMark', funciont(request, response)
+{
+	var headers = {};
+	headers["Access-Control-Allow-Origin"] = "*";
+	headers["Access-Control-Allow-Methods"] = "POST, GET, PUT, DELETE, OPTIONS";
+	headers["Access-Control-Allow-Credentials"] = false;
+	headers["Access-Control-Max-Age"] = '86400'; // 24 hours
+	headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept";
+	headers["Content-Type"] = "application/json";
+
+	var studMark;
+	
+	//check body and parameters
+	if ( typeof request.body !== 'undefined' && request.body)
+	{
+		if ( typeof request.body.ID !== 'undefined' && request.body.ID)
+            {
+			 studMark = request.body.mark;
+            }
+		else 
+			studMark = "not defined";
+	
+	}
+	else
+	{
+		studMark = "body undefined";
+	}
+    
+    if (studMark!="not defined" && studMark!="body undefined")
+	{
+		//aceptable input
+		//search for a student
+		var student = studentManager.searchStudentM(studMark);
+		//if exists
+		if (student != null)
+		{
+			response.writeHead(200, headers);
+			response.end(JSON.stringify(student));
+		}
+		else
+		{
+			response.writeHead(404, headers);
+			response.end(JSON.stringify());
+		}
+
+	}
+    else    
+	{
+		//unaceptable input
+		response.writeHead(406, headers);
+		response.end(JSON.stringify("1"));
+	}   
+	
 });
 
 /**
