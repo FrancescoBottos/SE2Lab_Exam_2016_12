@@ -78,3 +78,21 @@ describe("Test /searchStudent", function() {
 
 
 });
+
+describe("Test /deleteStudent", function() {
+	var test = {"1", "AB45"};
+	it("returns status code 200", function(done) {
+		client.post(base_url + "deleteStudent/", test, function(err, res, body){
+			expect(res.statusCode).toBe(200);
+			done();
+	});
+	var test1 = {}
+	it("returns status code 406", function(done) {
+		client.post(base_url + "deleteStudent/", test1, function(err, res, body){
+			expect(res.statusCode).toBe(406);
+			done();
+	});
+});
+
+
+
