@@ -90,6 +90,9 @@ paths:
             type: array
             items:
               $ref: "#/definitions/student"
+	404:
+		description: no students
+	
           
 definitions:
   student:
