@@ -230,10 +230,6 @@ app.post('/searchByMark', function(request, response)
 		{
 			response.writeHead(200, headers);
 			response.end(JSON.stringify(student));
-		}else
-		{
-			response.writeHead(404, headers);
-			response.end(JSON.stringify());
 		}
 	
 });
