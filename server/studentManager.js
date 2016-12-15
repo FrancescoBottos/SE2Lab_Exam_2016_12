@@ -125,7 +125,7 @@ var deleteStudentSSN = function deleteStudentSSN(SSN)
 var searchStudentM = function searchStudentM(mark)
 {
 	var rMark = mark[1];
-	var markList[];
+	var markList = [];
 	var numL = 0;
 	for (i=0; i < studentList.length; i++)
 	{
